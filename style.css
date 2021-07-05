@@ -5,30 +5,42 @@
 	padding: 0;
 	box-sizing: border-box;
 	--blue: royalblue;
+	--dark: rgb(26, 26, 26);
+	--yellow: rgb(238, 200, 74);
 }
 
 body {
+	height: 100vh;
 	display: flex;
-	height: 90vh;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: rgb(27, 27, 27);
+	background-color: var(--dark);
 	font-family: 'Roboto', sans-serif;
 	color: white;
+	/* overflow: hidden; */
 }
 
 div {
-	width: 40%;
+	width: 50%;
 	background-color: rgb(59, 59, 59);
 	padding: 30px;
 	border-radius: 5px;
 	position: relative;
+	margin: 10px;
+}
+
+div:last-of-type{
+	margin-top: 10px;
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 h2 {
 	text-transform: uppercase;
 	font-weight: 500;
-	color: var(--blue);
+	color: white;
 }
 
 a {
@@ -37,14 +49,124 @@ a {
 	background-color: var(--blue);
 	padding: 10px;
 	border-radius: 5px;
+	margin: 5px;
 }
+
+mark{
+	background-color: rgb(238, 200, 74);
+	border-radius: 2px;
+	padding: 2px;
+}
+
+c{
+	color: var(--blue);
+	position: relative;
+}
+
+p{
+	width: 100%;
+	position: relative;
+	line-height: 1.5;
+}
+
+/* HOVER EFFECTS */
 
 a:hover {
-	padding: 12px;
+	color: var(--dark);
+	background-color: var(--yellow);
 }
 
-@media screen and (max-width: 800px) {
-	div {
-		width: 60%;
+p:hover{
+	text-decoration: underline;
+}
+
+/* SIDE EMOJIS */
+.presentation::after, .working::after, c::after{
+	background-color: var(--dark);
+	border-radius: 10px 10px 0 10px;
+	border: 1px solid var(--blue);
+	padding: 10px;
+	position: absolute;
+}
+
+.presentation::after{
+	content: '😀';
+	top: 0;
+	left: -50px;
+}
+
+.working::after{
+	content: '💻';
+	top: 0;
+	left: -50px;
+}
+
+.presentation:hover::after, .working:hover::after{
+	cursor: pointer;
+	background-color: var(--blue);
+}
+
+.presentation:hover::after{
+	content: '😀 Apresentação';
+	left: -153px;
+}
+
+.working:hover::after{
+	content: '💻 Em breve...';
+	left: -132px;
+}
+
+/* USERNAME */
+c:hover::after{
+
+	font-size: 16px;
+	color: gray;
+	text-transform: none;
+	content: '@luizerl';
+	top: -42px;
+	left: -50px;
+
+	animation: big 0.2s ease-in-out;
+	transform-origin: bottom;
+}
+
+
+
+@keyframes big{
+	from{
+		transform: scale(0);
+	}
+	to{
+		transform: scale(1);
+	}
+}
+
+/* MOBILE ADJUSTEMENTS */
+
+@media screen and (max-width: 890px) {
+	.presentation:hover::after{
+		content: '😀';
+		left: -50px;
+	}
+	.working:hover::after{
+		content: '💻';
+		left: -50px;
+	}
+	div{
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 400px){
+	body{
+		justify-content: flex-start;
+	}
+	.presentation:hover::after{
+		content: '😀';
+		left: -50px;
+	}
+	.working:hover::after{
+		content: '💻';
+		left: -50px;
 	}
 }
