@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+* {
+	border: 0;
+	padding: 0;
+	box-sizing: border-box;
+	--blue: royalblue;
+	--dark: rgb(26, 26, 26);
+	--yellow: rgb(238, 200, 74);
+}
+
+body {
+	max-width: 80%;
+	margin: 1rem auto;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	background-color: var(--dark);
+	justify-content: center;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	/* overflow: hidden; */
+}
+
+.sidebar{
+
+	flex-grow: 1;
+	gap: 1rem;
+}
+
+main{
+	flex-grow: 3;
+}
+
+
+div {
+	background-color: rgb(59, 59, 59);
+	padding: 30px;
+	border-radius: 5px;
+	position: relative;
+	margin: 5px;
+}
+
+ul{
+	padding: 15px;
+}
+
+ul li{
+	color: var(--yellow);
+}
+
+ul li span{
+	color: white;
+}
+
+
+img{
+	align-self: center;
+	max-width: 100%;
+}
+
+.links{
+	padding: 5px;
+	text-align: center;
+}
+
+.links .wrapp{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+	margin: 0;
+    padding: 0;
+
+}
+h2 {
+	text-transform: uppercase;
+	font-weight: 500;
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	background-color: var(--blue);
+	padding: 10px;
+	border-radius: 5px;
+	margin: 5px 5px 5px 0;
+}
+
+mark{
+	background-color: rgb(238, 200, 74);
+	border-radius: 2px;
+	padding: 2px;
+}
+
+c{
+	color: var(--blue);
+	position: relative;
+}
+
+p{
+	width: 100%;
+	position: relative;
+	line-height: 1.5;
+}
+
+
+
+
+/* HOVER EFFECTS */
+
+a:hover {
+	color: var(--dark);
+	background-color: var(--yellow);
+}
+
+
+
+.apresentacao p:hover{
+	text-decoration: underline;
+}
+
+/* SIDE EMOJIS */
+.presentation::after, .working::after, c::after{
+	background-color: var(--dark);
+	border-radius: 10px 10px 0 10px;
+	border: 1px solid var(--blue);
+	padding: 10px;
+	position: absolute;
+}
+
+.presentation::after{
+	content: '😀';
+	top: 0;
+	left: -50px;
+}
+
+.working::after{
+	content: '💻';
+	top: 0;
+	left: -50px;
+}
+
+.presentation:hover::after, .working:hover::after{
+	cursor: pointer;
+	background-color: var(--blue);
+}
+
+.presentation:hover::after{
+	content: '😀 Apresentação';
+	left: -153px;
+}
+
+.working:hover::after{
+	content: '💻 Em breve...';
+	left: -132px;
+}
+
+
+
+/* USERNAME */
+c:hover::after{
+
+	font-size: 16px;
+	color: gray;
+	text-transform: none;
+	content: '@luizerl';
+	top: -42px;
+	left: -50px;
+
+	animation: big 0.2s ease-in-out;
+	transform-origin: bottom;
+}
+
+
+
+/* PROJECTS */
+.project .img{
+	text-decoration: none;
+	background-color: transparent;
+	padding: 0;
+	border-radius: 5px;
+	margin: 0;
+	position: relative;
+
+}
+
+.project h1 a{
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+}
+
+.project h1 a:hover{
+	color: var(--yellow);
+}
+
+.tecnologias{
+	padding: 0;
+	display: flex;
+	gap: .5rem;
+	flex-wrap: wrap;
+}
+
+.tecnologias li{
+	list-style: none;
+	color: white;
+	background-color: var(--dark);
+	padding: .5rem 1rem;
+	border-radius: 5px;
+}
+
+
+
+@keyframes big{
+	from{
+		transform: scale(0);
+	}
+	to{
+		transform: scale(1);
+	}
+}
+
+/* MOBILE ADJUSTEMENTS */
+
+@media screen and (max-width: 890px) {
+	.presentation:hover::after{
+		content: '😀';
+		left: -50px;
+	}
+	.working:hover::after{
+		content: '💻';
+		left: -50px;
+	}
+	div{
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 400px){
+	body{
+		justify-content: flex-start;
+	}
+	.presentation:hover::after{
+		content: '😀';
+		left: -50px;
+	}
+	.working:hover::after{
+		content: '💻';
+		left: -50px;
+	}
+}
