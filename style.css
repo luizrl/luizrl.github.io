@@ -10,33 +10,68 @@
 }
 
 body {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	max-width: 80%;
+	margin: 1rem auto;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
 	background-color: var(--dark);
+	justify-content: center;
 	font-family: 'Roboto', sans-serif;
 	color: white;
 	/* overflow: hidden; */
 }
 
+.sidebar{
+
+	flex-grow: 1;
+	gap: 1rem;
+}
+
+main{
+	flex-grow: 3;
+}
+
+
 div {
-	width: 50%;
 	background-color: rgb(59, 59, 59);
 	padding: 30px;
 	border-radius: 5px;
 	position: relative;
-	margin: 10px;
+	margin: 5px;
 }
 
-div:last-of-type{
-	margin-top: 10px;
-	padding: 10px;
+ul{
+	padding: 15px;
+}
+
+ul li{
+	color: var(--yellow);
+}
+
+ul li span{
+	color: white;
+}
+
+
+img{
+	align-self: center;
+	max-width: 100%;
+}
+
+.links{
+	padding: 5px;
+	text-align: center;
+}
+
+.links .wrapp{
 	display: flex;
 	flex-wrap: wrap;
-}
+	width: 100%;
+	justify-content: center;
+	margin: 0;
+    padding: 0;
 
+}
 h2 {
 	text-transform: uppercase;
 	font-weight: 500;
@@ -49,7 +84,7 @@ a {
 	background-color: var(--blue);
 	padding: 10px;
 	border-radius: 5px;
-	margin: 5px;
+	margin: 5px 5px 5px 0;
 }
 
 mark{
@@ -69,6 +104,9 @@ p{
 	line-height: 1.5;
 }
 
+
+
+
 /* HOVER EFFECTS */
 
 a:hover {
@@ -76,7 +114,9 @@ a:hover {
 	background-color: var(--yellow);
 }
 
-p:hover{
+
+
+.apresentacao p:hover{
 	text-decoration: underline;
 }
 
@@ -116,6 +156,8 @@ p:hover{
 	left: -132px;
 }
 
+
+
 /* USERNAME */
 c:hover::after{
 
@@ -128,6 +170,44 @@ c:hover::after{
 
 	animation: big 0.2s ease-in-out;
 	transform-origin: bottom;
+}
+
+
+
+/* PROJECTS */
+.project .img{
+	text-decoration: none;
+	background-color: transparent;
+	padding: 0;
+	border-radius: 5px;
+	margin: 0;
+	position: relative;
+
+}
+
+.project h1 a{
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+}
+
+.project h1 a:hover{
+	color: var(--yellow);
+}
+
+.tecnologias{
+	padding: 0;
+	display: flex;
+	gap: .5rem;
+	flex-wrap: wrap;
+}
+
+.tecnologias li{
+	list-style: none;
+	color: white;
+	background-color: var(--dark);
+	padding: .5rem 1rem;
+	border-radius: 5px;
 }
 
 
